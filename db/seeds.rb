@@ -11,12 +11,12 @@
     description: Faker::Lorem.paragraph
   )
 
-  # create some number of reviews between 5 and 20
+  # create some number of reviews between 5 and 25
   (1..rand(5..25)).each do
     show.reviews.create!(
-      critic_name: Faker::App.author,
-      publication_name: "#{Faker::Lorem.words} " + ['Times', 'Journal', 'Inquirer', 'Daily'].sample,
-      score: rand(0..100),
+      critic_name: Faker::Name.name,
+      publication_name: "#{Faker::Lorem.words} " + %w(Times Journal Inquirer Daily).sample,
+      score: rand(1..100),
       body: Faker::Lorem.paragraph
     )
   end
