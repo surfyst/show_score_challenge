@@ -34,33 +34,33 @@ The schema consists of "shows" and "reviews". We've dropped corresponding models
 
 2. Build a page that displays the top 10 shows by average score (in descending order, with the highest-rated show at the top of the list).
    The interface should display the show title, its average score (you should limit the decimals to 1, i.e. "score: 70.5") and its review count.
-   Use Bootstrap to style it, feel free to organize data however you want, you just need to use standard Bootstrap elements/class, so it looks pretty.
-   Add some tests too, you can use whatever framework you like: MiniTest, RSpec, etc.
+   Use Bootstrap to style it, feel free to organize the data however you want -- just need to use standard Bootstrap elements/class, so it looks pretty.
+   Add some tests, using whatever framework you like: MiniTest, RSpec, etc.
 
-3. Even though this is a simple demo app that we're running in a development environment, if there are any special tricks you would use to increase the performance of an interface like this in a production environment (caching strategies, for instance, or special ActiveRecord functions) feel free to show those off.
+3. Even though this is a simple demo app that we're running in a development environment, if there are any special tricks you would use to increase the performance of an app like this in a production environment (caching strategies, for instance, or special ActiveRecord functions) feel free to show those off.
 
 #### Step 2
 
-Change your query for top 10 shows in such a way, that it will sort shows not just by average score, but by (average score + random number from 0 to 100).
-The tricky part: random number should be changed **once a minute**, not on every request, so within one minute top stays static, but it changes for every next minute.
+Change your query for the top 10 shows so that it will sort shows not by average score, but by (average score + random number from 0 to 100).
+The tricky part: the random number should be changed **once a minute**, not on every request, so within a given one-minute period the top stays static, but then it changes for every next-minute period.
 
 #### Step 3
 
-Using CoffeeScript, write polling mechanism, which will request server **every second** for updated top.
-Server end-point should simulate response which takes 1.5 seconds to compute.
-Replace current top shows with server response, no need to compare if there any changes or not.
+Using CoffeeScript, write a polling mechanism, which will make a request to the server **every second** for an updated top list.
+The server end-point should simulate a response that takes 1.5 seconds to compute.
+Replace the current top shows with the server's response.  There is no need to compare if there any changes or not.
 It would be awesome if you could use `Class` feature of CoffeeScript to make your code namespaced and independent.
 
 ### Result
 
-If all 3 steps are done properly, the app should work like that:
+If all 3 steps are done properly, the app should work like this:
 
-1. going to `localhost:3000` in browser presents top 10 shows (immediately, without any delays from step 3)
-2. keeping browser open on that page will change top 10 shows every minute without any actions from user side (because random number changes once a minute)
+1. going to `localhost:3000` in a browser presents the top 10 shows (immediately, without any delays from step 3)
+2. while keeping the browser open, that page will change the top 10 shows every minute without any actions from user side (because the random number changes once a minute)
 
 That's it.
 
-Creating small meaningful commits along the way would be a plus.
+Creating small meaningful commits along the way would be a plus, as is good inline documentation and verbose commit descriptions.
 You can share your work with us by sending your project tree to us by email in a compressed directory.
 
 Please, **don't send pull requests** to this repository.
