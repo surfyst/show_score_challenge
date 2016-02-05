@@ -56,7 +56,7 @@ It would be awesome if you could use `Class` feature of CoffeeScript to make you
 If all 3 steps are done properly, the app should work like this:
 
 1. going to `localhost:3000` in a browser presents the top 10 shows (immediately, without any delays from step 3)
-2. while keeping the browser open, that page will change the top 10 shows every minute without any actions from user side (because the random number changes once a minute)
+2. while keeping the browser open, that page will change the top 10 shows without any actions from user side (when the random number changes)
 
 That's it.
 
