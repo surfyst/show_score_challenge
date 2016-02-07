@@ -1,0 +1,18 @@
+h3 Shows
+
+.table-responsive
+  table#show-list.table.table-hover
+    thead
+      tr
+        th #
+        th Name
+        th Average Score
+        th Review Count
+    tbody
+      - @shows.each_with_index do |show, i|
+        tr
+          td= i+1
+          td= show.title
+          td= show.avg_score
+          td= show.review_count
+          
