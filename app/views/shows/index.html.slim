@@ -4,15 +4,17 @@ h3 Shows
   table#show-list.table.table-hover
     thead
       tr
-        th #
         th Name
         th Average Score
         th Review Count
     tbody
-      - @shows.each_with_index do |show, i|
-        tr
-          td= i+1
-          td= show.title
-          td= show.avg_score
-          td= show.review_count
-          
+script.mustache-template.show-mustache-template type="x-tmpl-mustache"
+  | {{#shows}}
+  tr
+    td
+      | {{title}}
+    td
+      | {{avg_score}}
+    td
+      | {{review_count}}
+  | {{/shows}}
