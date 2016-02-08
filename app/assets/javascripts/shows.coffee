@@ -7,10 +7,17 @@ class Poll
 
   start: ->
     show_template = $('.show-mustache-template').html()
+
+    received_response = true
+
     getShows = ->
-      $.ajax("/shows").done (data) ->
-        rendered = Mustache.render(show_template, shows: data)
-        $('#show-list tbody').html(rendered)
+      if received_response
+        received_response = false
+
+        $.ajax("/shows").done (data) ->
+          rendered = Mustache.render(show_template, shows: data)
+          $('#show-list tbody').html(rendered)
+          received_response = true
 
     getShows()
     setInterval getShows, @interval

@@ -10,6 +10,8 @@ class ShowsController < ApplicationController
       ORDER BY avg_score DESC LIMIT 10"
     @shows = Show.find_by_sql(sql)
 
+    sleep(1.5)
+
     respond_to do |format|
       format.json { render json: @shows}
       format.html
